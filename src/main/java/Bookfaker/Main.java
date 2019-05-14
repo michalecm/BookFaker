@@ -7,12 +7,18 @@ import util.guice.PersistenceModule;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         FakeBookFactory fakeBookFactory = new FakeBookFactory();
         ArrayList<FakedBook> fakedBookArrayList = new ArrayList<>();
-        for(int x = 0; x < 11; x++) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("How many books would you like to create?::  ");
+        int toCreate = keyboard.nextInt();
+        System.out.println();
+        keyboard.close();
+        for(int x = 0; x < toCreate; x++) {
             fakedBookArrayList.add(fakeBookFactory.generateFakedBook());
         }
 
